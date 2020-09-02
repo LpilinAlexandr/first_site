@@ -1,0 +1,235 @@
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.shopBox {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1200px;
+    flex-direction: column;
+    height: 100%;
+    justify-contentЖ center;
+
+}
+
+.productBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.descriptionBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    top: 120px;
+    margin: 5px;
+    padding: 20px;
+}
+
+.productBox form {
+    width: 55%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.SizeBox {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-left: 1px solid #d9d9d9;
+    padding-left: 5%;
+}
+
+.SizeBox label{
+
+}
+
+
+.buyElement {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.descriptionElement {
+    width: 40%;
+    padding: 0 10% 0 5%;
+    border-left: 1px solid #d9d9d9;
+}
+
+.numberBox {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 1%;
+}
+.numberBox h4 {
+    margin-bottom: 10%;
+}
+
+.numberBox button {
+    margin-top: 2%;
+}
+
+
+.sliderBox {
+    margin: 0 auto;
+    max-width: 800px;
+    min-width: 500px;
+    height: 400px;
+    position: relative;
+}
+
+
+.slick-next {
+    position: absolute;
+    top: 45%;
+    right: -8%;
+    background-image: url(/static/img/right.png);
+    background-repeat: no-repeat;
+    border: 0;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    outline: none;
+}
+
+.slick-next:focus {
+    outline: none;
+}
+
+.slick-prev {
+    position: absolute;
+    top: 45%;
+    left: -8%;
+    background-image: url(/static/img/left.png);
+    background-repeat: no-repeat;
+    border: 0;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    outline: none;
+}
+.slick-prev:focus {
+    outline: none;
+}
+
+.slick-dots li {
+    display: none;
+}
+
+.slickSlider div {
+    display: flex;
+}
+
+.slideContainer {
+    display: flex;
+    justify-content: center;
+}
+.slideContainer img:hover {
+    transform: scale(1.4);
+    transition: ease-out 2s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.commentBox {
+    display: flex;
+    flex-direction: column;
+    background-color: ;
+    position: relative;
+    top: 100px;
+}
+
+#commentForm {
+    display: flex;
+    margin: 20px 0;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#commentForm fieldset {
+    padding: 0 15%;
+}
+
+#commentForm legend {
+    text-align: center;
+}
+
+#commentForm textarea {
+    width: 100%;
+    height: 100px;
+}
+#commentForm input {
+    margin: 0 15%;
+    width: 75%
+    height: 40px;
+}
+
+.commentElement {
+    margin-bottom: 25px;
+    padding: 0 1%;
+}
+
+.commentElement h5 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #266489;
+}
+
+.commentElement h6 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    float: right;
+}
+.commentElement p {
+    font-size: 15px;
+    margin: 0;
+}
+
+#commentList {
+    width: 70%;
+    margin: 20px 0 5% 15%;
+    height: 250px;
+    overflow-y: scroll;
+}
+
+
+
+
+
+@media (max-width: 1050px) {
+
+    .sliderBox {
+        width: 500px;
+    }
+    .sliderBox img {
+        height: 400px;
+    }
+    .slick-prev {
+        z-index: 50;
+    }
+
+    .SizeBox {
+        width: 130px;
+    }
+
+    .SizeBox label {
+        font-size: 12px;
+    }
+}

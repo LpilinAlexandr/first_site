@@ -1,0 +1,29 @@
+{% extends "main/wrapper.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+	Войти
+{% endblock %}
+
+{% block content %}
+        {% if messages %}
+            {% for message in messages %}
+                <div>
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div class="container" style="height: 700px;">
+            <h2 style="text-align: center; margin:10px 0;">Авторизация</h2>
+            <p style="text-align: left; margin: 0;">
+                Если вам лень регистрироваться, то можете войти под тестовым пользователем:</p>
+            <p style="text-align: left; margin: 0;">Login: "user" - Password: "testuser"</p>
+                <form method="post" style="margin: 30px 0 0 0;">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit">Войти</button>
+                </form>
+            <hr>
+            Ещё не зарегистрированы? <a href="{% url 'reg' %}">Зарегистрироваться</a>
+        </div>
+{% endblock %}

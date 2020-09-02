@@ -1,0 +1,29 @@
+{% extends "main/wrapper.html" %}
+
+{% block title %}
+	Личный кабинет
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Это личный кабинет</h1>
+    <div style="display: block;">
+        Имя пользователя: {{ user.user.username }}
+    </div>
+    <div style="display: block;">
+        Имя: {{ user.user.first_name }}
+    </div>
+    <div style="display: block;">
+        Фамилия: {{ user.user.last_name }}
+    </div>
+    <div style="display: block;">
+        Email: {{ user.user.email }}
+    </div>
+    <div style="display: block;">
+        Последний вход: {{ user.user.last_login }} по МСК
+    </div>
+    <div style="display: block;">
+        Создан: {{ user.user.date_joined }}
+    </div>
+</div>
+{% endblock %}

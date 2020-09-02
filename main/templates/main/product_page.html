@@ -1,0 +1,98 @@
+{% extends "main/wrapper.html" %}
+
+{% block title %}
+	{{product.name}}
+{% endblock %}
+
+{% block content %}
+
+	<div class="shopBox">
+
+		<h1>{{product.name}}</h1>
+
+		<div class="productBox">
+
+			<div class="sliderBox">
+				<div class="slickSlider">
+					{% for prod in prod_img %}
+						<div class="sl__slider">
+							<div class="slideContainer">
+								<img src="{{ prod.img.url }}" height="500">
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="descriptionBox">
+				<form method="post">
+					<div class="buyElement">
+
+							{% csrf_token %}
+							<div class="numberBox">
+
+								<h4>Цена: {{ product.price }} ₽</h4>
+
+								<input type="number" class="form-control" name="count" min="1" required >
+
+								{% if user.is_authenticated %}
+									<button type="submit" name="product" value="{{product.name}}"
+									class="btn btn-outline-primary">В корзину</button>
+									{% else %}
+									<button type="submit" class="error" onclick="redirectLogin()"
+									class="btn btn-outline-primary">В корзину</button>
+								{% endif %}
+
+							</div>
+							<div class="SizeBox">
+
+								{% for size in sizes %}
+
+								<div>
+									<input type="radio" required id="size_{{size.size}}" name="size" value="{{size.size}}">
+									<label for="size_{{size.size}}" >{{size.size}} размер</label>
+								</div>
+
+								{% endfor %}
+
+							</div>
+
+					</div>
+				</form>
+				<div class="descriptionElement">
+					<h4> МОДЕЛЬ: {{product.name}}</h4>
+					<p>{{ product.description }}</p>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="commentBox">
+			<form method="get" id="commentForm">
+					{% csrf_token %}
+					<fieldset>
+						<legend>Оставьте комментарий</legend>
+						{{comment.comment}}
+					</fieldset>
+					{% if user.is_authenticated %}
+						<input type="submit" class="btn btn-outline-dark" value="Отправить">
+					{% else %}
+						<input form="redirector" type="submit" class="btn btn-outline-dark"
+							   value="Для отправки комментария необходимо авторизоватсья">
+					{% endif %}
+			</form>
+			<div class="form-control" id="commentList">
+				{% for el in new_comment %}
+					<div class="commentElement">
+						<h5>{{ el.owner }}:</h5>
+						<div>
+							<p>— {{ el.comment }}</p>
+							<h6> {{ el.comment_date }}</h6>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<form method="post" id="redirector">{% csrf_token %}</form>
+{% endblock %}

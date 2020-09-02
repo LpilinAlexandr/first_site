@@ -1,0 +1,120 @@
+.shopContainer {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1200px;
+    justify-content: center;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.productContainer {
+    width: 250px;
+    margin: 10px 5px 20px 5px;
+    position: relative;
+    padding: 5px;x
+    z-index: 10;
+    box-shadow: 0 0 10px #d5d5d5;
+    height: 320px;
+
+}
+
+.productContainer:hover {
+    background-color: #edf8ff;
+    box-shadow: none;
+    transition: ease-out 1s;
+    border-radius: 20px;
+
+}
+
+.shopContainer a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.productContainer:hover .pictureProduct {
+    transform: scale(1.3) rotate(10deg) translateY(20px) translateX(10px);
+    transition: ease-out 2s;
+}
+
+
+.imgContainer {
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+}
+
+.descriptionContainer {
+    margin: 40px auto 10px auto;
+    width: 220px;
+    text-align: center;
+}
+
+.descriptionContainer h5 {
+    margin: 0 0 10px 0;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.descriptionContainer a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+}
+
+.descriptionContainer p {
+    margin: 0 0 10px 0;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.numberContainer {
+    margin: 10px auto;
+    width: 200px;
+    display: flex;
+}
+
+.numberContainer input {
+    margin: 10px auto;
+    width: 180px;
+    border: 0;
+    background-color: #e5fbff;
+    outline: none;
+    text-align: center;
+}
+
+.buttonContainer {
+    margin: 10px auto;
+    width: 200px;
+    height: 40px;
+    display: flex;
+}
+
+.buttonContainer button {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background-color: #17a2b8;
+    font-size: 18px;
+    color: white;
+}
+
+.buttonContainer button:hover {
+    border: 1px solid #17a2b8;
+    transition: ease-out 0s;
+}
+
+.changeContainer {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 20px 0;
+}
+.changeContainer input {
+    font-size: 20px;
+    border: 0;
+    font-size: 23px;
+}

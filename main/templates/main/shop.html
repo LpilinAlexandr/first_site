@@ -1,0 +1,41 @@
+{% extends "main/wrapper.html" %}
+
+{% block title %}
+	Магазин
+{% endblock %}
+
+{% block content %}
+    <div class="changeContainer">
+        <form method="get" class="btn-group">
+            <input type="submit"  name="category" value="Все категории" class="btn btn-outline-dark">
+            <input type="submit" name="category" value="Кроссовки" class="btn btn-outline-dark">
+            <input type="submit" name="category" value="Кеды" class="btn btn-outline-dark">
+            <input type="submit" name="category" value="Туфли" class="btn btn-outline-dark">
+            <input type="submit" name="category" value="Сапоги" class="btn btn-outline-dark">
+        </form>
+    </div>
+
+    <div class="shopContainer">
+
+    {% for prod in pr %}
+            <a href="{{ prod.get_absolute_url}}">
+                <div class="productContainer">
+                        <div class="imgContainer">
+
+                                <img src="{{ prod.img.url }}" alt="" height="200px" class="pictureProduct">
+
+                        </div>
+
+                        <div class="descriptionContainer">
+                                <h5>{{ prod.name }}</h5>
+                            <p>Цена: {{prod.price}} ₽</p>
+                        </div>
+                </div>
+            </a>
+    {% endfor %}
+
+    </div>
+
+{% endblock %}
+
+

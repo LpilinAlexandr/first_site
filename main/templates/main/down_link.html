@@ -1,0 +1,18 @@
+{% extends "main/wrapper.html" %}
+
+{% block title %}
+	Сократить ссылку
+{% endblock %}
+
+{% block content %}
+        <div class="container">
+            <form method="get">
+                {% csrf_token %}
+                <label for="link" id="link_about">Сократить ссылку</label>
+                {{link.old_link}}
+            </form>
+            <br>Ваша ссылка:
+            <a href="{{new_link}}" id="linker">{{new_link}}</a>
+        </div>
+
+{% endblock %}

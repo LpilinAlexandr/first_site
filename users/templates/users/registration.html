@@ -1,0 +1,26 @@
+{% extends "main/wrapper.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+	Регистрация
+{% endblock %}
+
+{% block content %}
+
+        {% if messages %}
+            {% for message in messages %}
+                <div>
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div class="container">
+            <h2 >Регистрация</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit">Заригистрироваться</button>
+            </form>
+            Уже зарегистрированы? <a href="{% url 'login' %}">Войти</a>
+        </div>
+{% endblock %}

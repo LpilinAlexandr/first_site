@@ -1,0 +1,173 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: consolas;
+    background: white;
+
+}
+
+.headerMain {
+    background-color: #edf8ff;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fixedContainer {
+    margin: 0 auto;
+    min-width: 320px;
+    max-width: 960px;
+}
+
+#navigation {
+    padding-top: 10px;
+}
+
+#navigation ul {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding:0;
+}
+
+#navigation ul li {
+    display: inline-block;
+    padding: 0px 10px;
+    font-size: 25px;
+}
+
+#navigation ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+#navigation ul li a:hover {
+    color: #cfabff;
+}
+
+.simulator {
+    width: 400px;
+    order: -1;
+}
+
+#authUser {
+    padding-top: 10px;
+    width: 400px;
+}
+
+
+
+#authUser a {
+    text-decoration: none;
+    color: #266489;
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+#authUser a:hover {
+    color: #cfabff;
+}
+
+.cartContainer {
+    width: 300px;
+    background-color: #edf8ff;
+    text-align: center;
+    padding-top: 10px;
+    height: 100%;
+    box-shadow: 0px 0px 10px 1px #adb5bd;
+
+}
+
+.cartContainer:hover {
+    color: black;
+    box-shadow: none;
+    border-left: 1px solid #cfabff;
+}
+
+#cartLink {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+}
+
+.userContainer {
+    width: 300px;
+    background-color: #edf8ff;
+    text-align: center;
+    padding-top: 10px;
+    height: 100%;
+    order: -1;
+    text-align: center
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    box-shadow: 0px 0px 10px 1px #adb5bd;
+}
+
+.userContainer:hover {
+    color: black;
+    box-shadow: none;
+    border-right: 1px solid #cfabff;
+    text-decoration: none;
+}
+
+.userContainer:focus {
+    color: black;
+    box-shadow: none;
+    border-left: 1px solid #cfabff;
+    text-decoration: none;
+}
+
+.footerContainer {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 5px 10px 1px #adb5bd;
+    width: 100%;
+    position: relative;
+    top: 110px;
+}
+
+.footerContent {
+    width: 1040px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.footerContent div {
+    margin: 10px 20px;
+}
+
+.footerContent a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+@media (max-width: 1050px) {
+    #authUser {
+        width: 200px;
+        text-align: right;
+        padding: 5px;
+    }
+    #authUser a {
+        font-size: 12px;
+    }
+    .simulator {
+        width: 200px;
+    }
+
+    .cartContainer {
+        width: 130px;
+        font-size: 15px;
+        padding-top: 20px;
+    }
+
+    .userContainer {
+        width: 130px;
+        font-size: 15px;
+        padding-top: 20px;
+    }
+}
+

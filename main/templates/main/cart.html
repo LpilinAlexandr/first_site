@@ -1,0 +1,157 @@
+{% extends "main/wrapper.html" %}
+
+{% block title %}
+	Корзина
+{% endblock %}
+
+
+{% block content %}
+
+
+    {% if user.is_authenticated %}
+            <a href="#" id="history">
+                <div class="historyContainer">
+                    <span>История заказов</span>
+                </div>
+            </a>
+            <div id="popup-container">
+                <div id="popup">
+                    <h2>История заказов</h2>
+                        {% for details in details_order %}
+                        <div class="fullOrder">
+                                    <div class="mainOrder">
+                                        {% for order in details.orders.all %}
+                                        <div class="productInOrder">
+                                            <h5>{{ order.products.product }}</h5>
+                                            <p>Кол-во: <b>{{ order.products.count }}</b> шт.
+                                                 &nbsp;На сумму: <b>{{ order.price }}</b> руб.
+                                                Размер {{order.products.size.size}}
+                                            </p>
+                                            <a href="{{ order.products.product.get_absolute_url}}">
+                                                <img src="{{order.products.product.img.url}}" height="50px">
+                                            </a>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                <div class="finishDetails">
+                                    <h5>Итоговая сумма: {{details.payment_state}} руб.</h5>
+                                    <p>На имя: {{ details.first_name }} {{ details.last_name }}</p>
+                                    <p>Телефон: {{details.number_phone}} - Email: {{details.email}}</p>
+                                    <p>Дата заказа: {{details.date_order}} </p>
+                                </div>
+                        </div>
+                        {% endfor %}
+                </div>
+            </div>
+
+        <div id="fixedCartContainer">
+                <h2>Оформление заказа</h2>
+
+
+            <form method="get" id="productForm">
+                {% csrf_token %}
+                <fieldset id="detailsForm">
+                    <div class="elementDetails">
+                        <label for="first_name">Имя</label>
+                        <input type="text" id="first_name" class="form-control" required name="first_name">
+                    </div>
+
+                    <div class="elementDetails">
+                        <label for="last_name">Фамилия</label>
+                        <input type="text" id="last_name" class="form-control" required name="last_name">
+                    </div>
+
+                    <div class="elementDetails">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required name="email">
+                    </div>
+
+                    <div class="elementDetails">
+                        <label for="number_phone">Телефон</label>
+                        <input type="number" id="number_phone" class="form-control" required name="number_phone">
+                    </div>
+
+                    <div class="elementDetails">
+                        <label for="comment">Комментарий</label>
+                        <textarea id="comment" name="comment" class="form-control" maxlength="1000"></textarea>
+                    </div>
+                </fieldset>
+
+
+                <div class="fullCart">
+                        {% for prod in cart %}
+                            {% if prod.count %}
+                            {% if not prod.completed %}
+
+                            <div class="productCartContainer">
+
+                                <div class="descriptionUnit">
+                                    <h3>{{ prod.product }}</h3>
+
+                                    <p>
+                                        Размер {{ prod.size.size }}
+                                        Стоимость одной: {{ prod.product.price }} ₽;
+                                        Общ. цена:
+                                        <script>document.write({{ prod.product.price }} * {{ prod.count }}) ;</script>
+                                        ₽
+                                    </p>
+
+                                    <button form="productDelete" type="submit" name="delete" value="{{ prod.size.size }}%{{prod.product}}"
+                                            class="btn btn-outline-dark">
+                                        Удалить
+                                    </button>
+                                </div>
+
+                                <div class="QuantityUnit">
+                                    <input type="hidden" name="count%{{ prod.product }}%{{ prod.size.size }}" value="{{ prod.count }}">
+
+                                    <div>
+                                        <p>Кол-во:</p>
+                                    </div>
+
+                                    <div>
+                                        <button form="quantityForm" name="minus" value="{{ prod.size.size }}%{{prod.product}}"
+                                            class="btn btn-outline-dark">-</button>
+                                            <span>{{ prod.count }}</span>
+                                        <button form="quantityForm" name="plus" value="{{ prod.size.size }}%{{prod.product}}"
+                                            class="btn btn-outline-dark">+</button>
+                                    </div>
+                                </div>
+
+                                <div class="imageUnit">
+                                    <a href="{{ prod.product.get_absolute_url}}">
+                                        <img src="{{ prod.product.img.url }}" height="130px">
+                                    </a>
+                                </div>
+
+                            </div>
+                            {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                </div>
+            </form>
+
+        <div class="wrapperFinish">
+            <div id="finishSumm">
+                <h5>Итоговая сумма {{ full_sum }} руб.</h5>
+                <button form="productForm" id="finishButton" class="btn btn-outline-dark">Заказать</button>
+
+                <form method="get" id="clearCart">
+                    {% csrf_token %}
+                    <button type="submit" id="destroyCart" name="destroy" value="yes"
+                    class="btn btn-outline-dark"> Очистить корзину</button>
+                </form>
+            </div>
+        </div>
+
+
+            <form id="productDelete"></form>
+            <form id="quantityForm" method="get"></form>
+
+
+
+        </div>
+    {% endif %}
+
+
+{% endblock %}
